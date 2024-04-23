@@ -1,8 +1,9 @@
 function Results() {
      return (
-          <div>
-               <h1>Résultat</h1>
-          </div>
+       <div>
+         <h1>Résultats</h1>
+       </div>
      )
-}
-export default Results
+   }
+   
+   export default Results
