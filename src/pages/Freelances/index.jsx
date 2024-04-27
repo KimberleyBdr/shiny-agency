@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import colors from '../../utils/style/colors'
 import { Loader } from '../../utils/style/Atoms'
 
-
 const CardsContainer = styled.div`
   display: grid;
   gap: 24px;
@@ -28,15 +27,14 @@ const PageSubtitle = styled.h2`
   text-align: center;
   padding-bottom: 30px;
 `
-
 const LoaderWrapper = styled.div`
   display: flex;
   justify-content: center;
 `
 
 function Freelances() {
-  const [error, setError] = useState(false)
   const [isDataLoading, setDataLoading] = useState(false)
+  const [error, setError] = useState(false)
   const [freelancersList, setFreelancesList] = useState([])
 
   useEffect(() => {
@@ -47,7 +45,7 @@ function Freelances() {
         const { freelancersList } = await response.json()
         setFreelancesList(freelancersList)
       } catch (err) {
-        console.log('===== error =====', err)
+        console.log(err)
         setError(true)
       } finally {
         setDataLoading(false)
@@ -56,8 +54,8 @@ function Freelances() {
     fetchFreelances()
   }, [])
 
-  if(error) {
-    return <span>Oups il y a eu un problème.</span>
+  if (error) {
+    return <span>Oups il y a eu un problème</span>
   }
 
   return (
@@ -66,7 +64,6 @@ function Freelances() {
       <PageSubtitle>
         Chez Shiny nous réunissons les meilleurs profils pour vous.
       </PageSubtitle>
-
       {isDataLoading ? (
         <LoaderWrapper>
           <Loader />
